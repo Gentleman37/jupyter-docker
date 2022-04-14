@@ -1,0 +1,9 @@
+echo 'Deleting container: notebook_1'
+docker rm notebook_1
+
+echo 'Run container: notebook_1'
+docker run \
+  --name notebook_1 \
+  -p 8888:8888 \
+  --mount type=bind,source="$(pwd)"/jupyter-notebook,target=/app \
+  jupyter-notebook
